@@ -6,8 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": true,
-    "includes": ["src/**", "test/**"]
+    "ignoreUnknown": true
   },
   "formatter": {
     "enabled": true,
@@ -21,47 +20,18 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "preset": "all",
+      "recommended": true,
       "style": {
-        "useImportType": "off",
-        "useDefaultSwitchClause": "off",
-        "useForOf": "warn",
-        "useNamingConvention": "off",
-        "useFilenamingConvention": "off",
-        "noDefaultExport": "off",
-        "useExplicitLengthCheck": "off",
-        "noParameterProperties": "off",
-        "noProcessEnv": "off",
-        "noMagicNumbers": "off"
+        "useImportType": "off"
       },
       "correctness": {
         "noUnusedVariables": {
           "level": "warn",
           "fix": "none"
-        },
-        "noUnusedImports": {
-          "level": "warn",
-          "fix": "safe"
-        },
-        "noNodejsModules": "off",
-        "useImportExtensions": "off",
-        "noUndeclaredDependencies": "off"
+        }
       },
       "complexity": {
-        "noStaticOnlyClass": "off",
-        "noForEach": "off",
-        "useLiteralKeys": "off"
-      },
-      "suspicious": {
-        "noExplicitAny": "warn",
-        "noEmptyInterface": "off"
-      },
-      "performance": {
-        "noBarrelFile": "off",
-        "noReExportAll": "off"
-      },
-      "nursery": {
-        "preset": "none"
+        "noStaticOnlyClass": "off"
       }
     }
   },
@@ -69,29 +39,10 @@
     "formatter": {
       "quoteStyle": "single",
       "trailingCommas": "all",
-      "semicolons": "always",
-      "arrowParentheses": "always",
-      "bracketSpacing": true
+      "semicolons": "always"
     },
     "parser": {
       "unsafeParameterDecoratorsEnabled": true
-    },
-    "globals": [
-      "describe",
-      "it",
-      "expect",
-      "beforeEach",
-      "afterEach",
-      "beforeAll",
-      "afterAll",
-      "vi"
-    ]
-  },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
     }
   }
 }

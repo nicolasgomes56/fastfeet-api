@@ -1,24 +1,22 @@
-import process from 'node:process';
-import { Module, Provider } from '@nestjs/common';
-import { drizzle } from 'drizzle-orm/node-postgres';
+import { Global, Module } from '@nestjs/common';
+import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
-import * as schema from './drizzle/schema';
 
-export const DRIZZLE = Symbol('DRIZZLE');
+export const DRIZZLE = Symbol('DRIZZLE_CONNECTION');
 
-const drizzleProvider: Provider = {
-  provide: DRIZZLE,
-  useFactory: () => {
-    const queryClient = postgres(process.env.DATABASE_URL!, {
-      max: 10,
-    });
+export type DrizzleDB = PostgresJsDatabase;
 
-    return drizzle(queryClient, { schema });
-  },
-};
-
+@Global()
 @Module({
-  providers: [drizzleProvider],
+  providers: [
+    {
+      provide: DRIZZLE,
+      useFactory: () => {
+        const client = postgres(process.env.DATABASE_URL as string);
+        return drizzle(client);
+      },
+    },
+  ],
   exports: [DRIZZLE],
 })
 export class DatabaseModule {}
