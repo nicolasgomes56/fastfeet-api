@@ -1,5 +1,5 @@
+import { env } from 'node:process';
 import { defineConfig } from 'drizzle-kit';
-import { env } from 'process';
 import 'dotenv/config';
 
 export default defineConfig({

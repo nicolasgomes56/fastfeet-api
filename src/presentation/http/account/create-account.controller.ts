@@ -13,7 +13,7 @@ import { z } from 'zod';
 import type { DrizzleDB } from '@/infra/database/database.module';
 import { DRIZZLE } from '@/infra/database/database.module';
 import { users } from '@/infra/database/drizzle/schema';
-import { ZodValidationPipe } from '../pipes/zod-validation-pipe';
+import { ZodValidationPipe } from '../../pipes/zod-validation-pipe';
 
 const createAccountBodySchema = z.object({
   name: z.string(),
