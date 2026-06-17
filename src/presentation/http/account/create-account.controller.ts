@@ -10,10 +10,10 @@ import {
 import { hash } from 'bcryptjs';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
-import type { DrizzleDB } from '@/infra/database/database.module';
-import { DRIZZLE } from '@/infra/database/database.module';
-import { users } from '@/infra/database/drizzle/schema';
-import { ZodValidationPipe } from '../../pipes/zod-validation-pipe';
+import type { DrizzleDB } from '@/infrastructure/database/database.module';
+import { DRIZZLE } from '@/infrastructure/database/database.module';
+import { users } from '@/infrastructure/database/drizzle/schema';
+import { ZodValidationPipe } from '@/presentation/pipes/zod-validation-pipe';
 
 const createAccountBodySchema = z.object({
   name: z.string(),
